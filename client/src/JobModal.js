@@ -24,7 +24,11 @@ export default function JobModal({ job, status, handleClose }) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle className="detail-header" id="alert-dialog-slide-title">
-          <img src={job.company_logo} className="detail-logo" />
+          <img
+            src={job.company_logo}
+            className="detail-logo"
+            alt="company-logo"
+          />
           <div className="detail-title">{job.title}</div>
           <div className="detail-company">{job.company}</div>
         </DialogTitle>

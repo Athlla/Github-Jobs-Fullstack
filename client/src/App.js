@@ -14,8 +14,6 @@ async function fetchJobs(updateCB) {
 function App() {
   const [jobList, updateJobList] = useState([]);
 
-  console.log(jobList);
-
   React.useEffect(() => {
     fetchJobs(updateJobList);
   }, []);
