@@ -24,6 +24,36 @@
   color: white;
 }
 
+.jobs {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.job {
+  margin: 0 auto;
+  margin: 20px 0;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+}
+
+.job:hover {
+  cursor: pointer;
+  color: darkgray;
+}
+
+.detail-logo {
+  height: 30px;
+  float: right;
+}
+
+a {
+  text-decoration: none;
+}
+
 .App-link {
   color: #61dafb;
 }

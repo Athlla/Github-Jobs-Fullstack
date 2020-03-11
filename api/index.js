@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const redis = require('redis');
 const client = redis.createClient();
 
@@ -8,6 +9,8 @@ const getAsync = promisify(client.get).bind(client);
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+
+app.use(cors());
 
 app.get('/jobs', async (req, res) => {
   const getJobs = await getAsync('github');
