@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import Job from './Job';
+import JobModal from './JobModal';
 
 export default function Jobs({ jobs }) {
   // Pagination
@@ -13,21 +14,40 @@ export default function Jobs({ jobs }) {
   const lastIndexJobs = page * jobsPerPage;
   const firstIndexJobs = lastIndexJobs - jobsPerPage;
   const paginationJobs = jobs.slice(firstIndexJobs, lastIndexJobs);
-  console.log(paginationJobs);
 
   const handleChange = (event, value) => {
     setPage(value);
-    console.log({ value });
-    console.log({ event });
+  };
+
+  // modal detail
+  const [open, setOpen] = React.useState(false);
+  const [selectedJobs, setSelectedJobs] = React.useState({});
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
     <div className="jobs">
+      <JobModal job={selectedJobs} status={open} handleClose={handleClose} />
       <Typography variant="h3">Github Jobs API - Junior Tech Jobs</Typography>
+      <Typography variant="subtitle1" align="left" gutterBottom>
+        Found {jobs.length} Jobs
+      </Typography>
       {paginationJobs.map((job, i) => (
-        <Job key={i} job={job} />
+        <Job
+          key={i}
+          job={job}
+          onClick={() => {
+            handleClickOpen();
+            setSelectedJobs(job);
+          }}
+        />
       ))}
-
       <div className="pagination">
         <Pagination
           color="primary"

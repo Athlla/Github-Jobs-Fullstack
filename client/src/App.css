@@ -50,6 +50,11 @@
   float: right;
 }
 
+.detail-company {
+  font-size: 15px;
+  color: grey;
+}
+
 a {
   text-decoration: none;
 }
